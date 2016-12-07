@@ -8,9 +8,9 @@
                     <div class="panel-heading">{{ $post->title }}</div>
                     <div class="panel-body">{{ $post->content }}
                         <br>
-                        @if(Auth::check() &&Auth::user()->isAdmin)
+                        @if(Auth::check() && (Auth::user()->id==$post->organ_id))
                             <br>
-                            <a href="{{ route('article.edit', $post->id) }}">Modifier</a>
+                            <a href="{{ route('article.edit', $post->id) }}" class="btn btn-success">Modifier</a>
                             <br>
 
                             {!! Form::model(

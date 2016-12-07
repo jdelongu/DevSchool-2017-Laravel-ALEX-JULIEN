@@ -51,11 +51,6 @@
                         {!! Form::number('tarif', 'value') !!}
 
 
-                        {!! Form::label('user', 'Organisateur') !!}
-
-                        {!! Form::model($user, ['route' => ['user.update', $user->id]]) !!}
-
-
                         {!! Form::submit('Publier',
                         ['class'=>'btn btn-info']) !!}
 

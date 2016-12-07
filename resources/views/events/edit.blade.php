@@ -5,23 +5,59 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Modifier un article</div>
-
+                    <div class="panel-heading">afficher le formulaire d'édition de l'article</div>
                     <div class="panel-body">
-                        {!! Form::model($post, ['route' => ['post.update', $post->id],
-                        'method' => 'PUT']) !!}
 
-                        {!! Form::label('title', 'Titre') !!}
-                        {!! Form::text('title', null,
-                        ['class' => 'form-control', 'placeholder' => 'Titre']) !!}
+                        {!! Form::model(
+                        $event,
+                        array(
+                        'route' => array('event.update', $event->id),
+                        'method' => 'PUT'))
+                        !!}
 
-                        {!! Form::label('content', 'Contenu') !!}
+                        {{-- Champs du formulaire --}}
+                        {!! Form::label('name', 'Nom') !!}
 
-                        {!! Form::textarea('content', null,
-                        ['class' => 'form-control', 'placeholder' => 'Contenu']) !!}
+                        {!! Form::text('name', null,
+                        ['class' => 'form-control',
+                         'placeholder' => 'Nom']) !!}
 
-                        <br>
-                        {!! Form::submit('Mettre à jour', ['class' => 'btn btn-info']) !!}
+
+                        {!! Form::label('description', 'Description') !!}
+
+                        {!! Form::textarea('description', null,
+                        ['class' => 'form-control',
+                         'placeholder' => 'Description']) !!}
+
+
+                        {!! Form::label('date_de_debut', 'Date de début') !!}
+
+                        {!! Form::date('date_de_debut', \Carbon\Carbon::now()) !!}
+
+
+                        {!! Form::label('date_de_fin', 'Date de fin') !!}
+
+                        {!! Form::date('date_de_fin', \Carbon\Carbon::now()) !!}
+
+
+                        {!! Form::label('lieu', 'Lieu') !!}
+
+                        {!! Form::text('lieu', null,
+                        ['class' => 'form-control',
+                         'placeholder' => 'Lieu']) !!}
+
+                        {!! Form::label('tarif', 'Tarif') !!}
+
+                        {!! Form::number('tarif', 'value') !!}
+
+
+                        {!! Form::label('user', 'Organisateur') !!}
+
+                        {!! Form::model($user, ['route' => ['user.update', $user->id]]) !!}
+
+
+                        {!! Form::submit('Publier',
+                        ['class'=>'btn btn-info']) !!}
 
                         {!! Form::close() !!}
                     </div>
@@ -29,4 +65,5 @@
             </div>
         </div>
     </div>
+
 @endsection

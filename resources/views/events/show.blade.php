@@ -5,20 +5,26 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">{{ $post->title }}</div>
+                    <div class="panel-heading">{{ $event->name }}</div>
 
                     <div class="panel-body">
-                        {{ $post->content }}
+                        {{ $event->content }}
 
                         <br>
-                        <em>Auteur : {{ $post->user->name }} </em>
 
-                        @if(Auth::check() && Auth::user()->isAdmin)
+                        <h2>{{ $event->name }}</h2>
+                        <p>Description: {{ $event->description }}</p>
+                        <h3>Debut : {{ $event->date_de_debut }}</h3>
+                        <h3>Fin : {{ $event->date_de_fin }}</h3>
+                        <h4>Lieu :{{ $event->lieu }}</h4>
+                        <h4>Tarif :{{ $event->tarif }}</h4>
+
+                        @if(Auth::check() && (Auth::user()->id==$event->organ_id))
                             <br>
-                            <a href="{{ route('post.edit', $post->id) }}" class="btn btn-success">Modifier</a>
+                            <a href="{{ route('event.edit', $event->id) }}" class="btn btn-success">Modifier</a>
 
-                            {!! Form::model($post, [
-                            'route' => ['post.destroy', $post->id],
+                            {!! Form::model($event, [
+                            'route' => ['event.destroy', $event->id],
                             'method' => 'DELETE'
                             ]) !!}
 

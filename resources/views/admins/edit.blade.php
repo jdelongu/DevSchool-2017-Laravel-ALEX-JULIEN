@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">afficher le formulaire d'édition de l'article</div>
                     <div class="panel-body">
-                        @
+
                         {!! Form::model(
                         $post,
                         array(

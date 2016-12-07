@@ -11,7 +11,6 @@
                         {{ $event->content }}
 
                         <br>
-
                         <h2>{{ $event->name }}</h2>
                         <p>Description: {{ $event->description }}</p>
                         <h3>Debut : {{ $event->date_de_debut }}</h3>

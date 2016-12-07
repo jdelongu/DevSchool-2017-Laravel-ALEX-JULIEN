@@ -28,3 +28,15 @@ $factory->define(App\Models\Event::class, function (Faker\Generator $faker) {
         'user_id' => $faker->numberBetween(1, 20),
     ];
 });
+
+$factory->define(App\Models\Event::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->sentence(10),
+        'description' => $faker->paragraph(4),
+        'date_de_debut'=>$faker->date($format = 'Y-m-d', $max = 'now'), // '1979-06-09'
+        'date_de_fin'=>$faker->date($format = 'Y-m-d', $max = 'now'), // '1979-06-09'
+        'lieu'=>$faker->sentence(10),
+        'tarif'=>$faker->rand(1,999),
+        'organ_id' => rand(1,20)
+    ];
+});

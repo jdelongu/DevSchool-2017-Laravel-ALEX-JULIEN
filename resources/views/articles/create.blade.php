@@ -10,7 +10,7 @@
                     <div class="panel-body">
                         {!! Form::open(['route' => 'article.store', 'method' => 'POST']) !!}
 
-                        {!! Form::label('title', 'Titre de l\'article) !!}
+                        {!! Form::label('title', 'Titre de l\'article)' !!}
                         {!! Form::text('title', null,
                         ['class' => 'form-control', 'placeholder' => 'Titre']) !!}
 

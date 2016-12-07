@@ -39,10 +39,29 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //validate
+        $this->validate($request, [
+            'name'=> 'required|min:2',
+            'description' => 'required|min:20',
+            'datededebut' => 'required',
+            'datedefin' => 'required',
+            'lieu'=> 'required|min:1',
+            'tarif'=> 'required'
+        ],
+            [
+                'name.required'=> 'Nom de l\'evenement requis',
+                'nom.min' => 'Le nom doit faire au moins 2 caractères',
+                'description.required'=> 'Contenu requis',
+                'description.min' => 'Le contenu doit faire au moins 20 caractères',
+                'datededebut.required'=> 'Date de début requise',
+                'datedefin.required'=> 'Date de fin requise',
+                'lieu.required'=> 'Lieu requis',
+                'lieu.min' => 'Le lieu doit faire au moins 1 caractère reconnu par l\'associations des licornes',
+                'tarif.required'=> 'Tarif requis',
+
+            ]);
         $post = new Event;
         $input = $request->input();
-        $input['user_id'] = Auth::user()->id;
+        $input['organ_id'] = Auth::user()->id;
         $post->fill($input)->save();
         return redirect()
             ->route('event.index')
@@ -82,7 +101,26 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //validate
+        $this->validate($request, [
+            'name'=> 'required|min:2',
+            'description' => 'required|min:20',
+            'datededebut' => 'required',
+            'datedefin' => 'required',
+            'lieu'=> 'required|min:1',
+            'tarif'=> 'required'
+        ],
+            [
+                'name.required'=> 'Nom de l\'evenement requis',
+                'nom.min' => 'Le nom doit faire au moins 2 caractères',
+                'description.required'=> 'Contenu requis',
+                'description.min' => 'Le contenu doit faire au moins 20 caractères',
+                'datededebut.required'=> 'Date de début requise',
+                'datedefin.required'=> 'Date de fin requise',
+                'lieu.required'=> 'Lieu requis',
+                'lieu.min' => 'Le lieu doit faire au moins 1 caractère reconnu par l\'associations des licornes',
+                'tarif.required'=> 'Tarif requis',
+
+            ]);
         $post = new Event;
         $input = $request->input();
         $input['user_id'] = Auth::user()->id;

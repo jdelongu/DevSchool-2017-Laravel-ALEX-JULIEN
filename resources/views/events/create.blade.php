@@ -10,19 +10,19 @@
                     <div class="panel-body">
                         {!! Form::open(['route' => 'event.store', 'method' => 'POST']) !!}
 
-                        {!! Form::label('nom', 'Nom') !!}
-                        {!! Form::text('nom', null,
+                        {!! Form::label('name', 'Nom') !!}
+                        {!! Form::text('name', null,
                         ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
 
                         {!! Form::label('description', 'Description') !!}
                         {!! Form::textarea('description', null,
                         ['class' => 'form-control', 'placeholder' => 'Description']) !!}
 
-                        {!! Form::label('datededebut', 'Date de début') !!}
-                        {!! Form::date('datededebut', \Carbon\Carbon::now()) !!}
+                        {!! Form::label('date_de_debut', 'Date de début') !!}
+                        {!! Form::date('date_de_debut', \Carbon\Carbon::now()) !!}
 
-                        {!! Form::label('datedefin', 'Date de fin') !!}
-                        {!! Form::date('datedefin', \Carbon\Carbon::now()) !!}
+                        {!! Form::label('date_de_fin', 'Date de fin') !!}
+                        {!! Form::date('date_de_fin', \Carbon\Carbon::now()) !!}
 
                         {!! Form::label('lieu', 'Lieu') !!}
                         {!! Form::text('lieu', null,

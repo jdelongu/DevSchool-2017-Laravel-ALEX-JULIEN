@@ -16,7 +16,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $list = Event::paginate(10);
+        $list = Event::paginate(3);
         return view('events.index', compact('list'));
 
     }
@@ -42,8 +42,8 @@ class EventController extends Controller
         $this->validate($request, [
             'name'=> 'required|min:2',
             'description' => 'required|min:20',
-            'datededebut' => 'required',
-            'datedefin' => 'required',
+            'date_de_debut' => 'required',
+            'date_de_fin' => 'required',
             'lieu'=> 'required|min:1',
             'tarif'=> 'required'
         ],
@@ -52,8 +52,8 @@ class EventController extends Controller
                 'nom.min' => 'Le nom doit faire au moins 2 caractères',
                 'description.required'=> 'Contenu requis',
                 'description.min' => 'Le contenu doit faire au moins 20 caractères',
-                'datededebut.required'=> 'Date de début requise',
-                'datedefin.required'=> 'Date de fin requise',
+                'date_de_debut.required'=> 'Date de début requise',
+                'date_de_fin.required'=> 'Date de fin requise',
                 'lieu.required'=> 'Lieu requis',
                 'lieu.min' => 'Le lieu doit faire au moins 1 caractère reconnu par l\'associations des licornes',
                 'tarif.required'=> 'Tarif requis',

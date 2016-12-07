@@ -15,7 +15,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $posts = Article::paginate(10);
+        $posts = Article::paginate(5);
 
         // lister les articles
         return view('articles.index', compact('posts'));
@@ -53,7 +53,7 @@ class ArticleController extends Controller
 
         $post = new Article;
         $input = $request->input();
-        $input['user_id']=Auth::user()->id;
+        $input['organ_id']=Auth::user()->id;
 
         $post->fill($input)->save();
 

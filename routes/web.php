@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index');
 Route::resource('/event','EventController');
 
 Route::resource('/article','ArticleController');
+
+Route::get('/admin', 'AdminController@index');

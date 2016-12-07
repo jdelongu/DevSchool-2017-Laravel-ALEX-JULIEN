@@ -13,6 +13,10 @@
                                 <a href="{{ route('event.show', $post->id) }}">{{ $post->name }}</a>
                             </h2>
                             <p>Description: {{ $post->description }}</p>
+                            <h3>Debut : {{ $post->date_de_debut }}</h3>
+                            <h3>Fin : {{ $post->date_de_fin }}</h3>
+                            <h4>Lieu :{{ $post->lieu }}</h4>
+                            <h4>Tarif :{{ $post->tarif }}</h4>
                         @endforeach
 
                         {!! $list->links() !!}

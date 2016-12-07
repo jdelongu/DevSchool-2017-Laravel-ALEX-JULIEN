@@ -48,6 +48,9 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+                    @if(Auth::check()&&Auth::user()->isAdmin)
+                        <li><a href="{{ route('admin.index') }}">Administration</a></li>
+                    @endif
                     @if(Auth::check())
                         <li><a href="{{ route('event.create') }}">Cree un evenement</a></li>
                         <li><a href="{{ route('article.create') }}">Cree un article</a></li>

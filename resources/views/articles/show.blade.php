@@ -10,13 +10,13 @@
                         <br>
                         @if(Auth::check() &&Auth::user()->isAdmin)
                             <br>
-                            <a href="{{ route('post.edit', $post->id) }}">Modifier</a>
+                            <a href="{{ route('article.edit', $post->id) }}">Modifier</a>
                             <br>
 
                             {!! Form::model(
                             $post,
                             array(
-                            'route' => array('post.destroy', $post->id),
+                            'route' => array('article.destroy', $post->id),
                             'method' => 'DELETE'))
                             !!}
 
@@ -27,9 +27,10 @@
 
                         @endif
                         <br>
-                        <a href="{{ route('post.index') }}">Retour aux articles</a>
+                        <a href="{{ route('article.index') }}">Retour aux articles</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection

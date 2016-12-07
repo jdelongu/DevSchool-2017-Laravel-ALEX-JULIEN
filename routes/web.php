@@ -23,4 +23,4 @@ Route::resource('/event','EventController');
 
 Route::resource('/article','ArticleController');
 
-Route::get('/admin', 'AdminController@index');
+Route::resource('/admin', 'AdminController');

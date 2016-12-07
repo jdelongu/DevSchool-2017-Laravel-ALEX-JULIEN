@@ -11,7 +11,21 @@
                         @foreach($posts as $post)
                             <h2>{{$post->title}}</h2>
                             <p>{{$post->content}}</p>
+                            <br>
+                            <a href="{{ route('admin.edit', $post->id, 0) }}" class="btn btn-success">Modifier</a>
+                            <br>
 
+                            {!! Form::model(
+                            $post,
+                            array(
+                            'route' => array('admin.destroy', $post->id, 0),
+                            'method' => 'DELETE'))
+                            !!}
+
+                            {!! Form::submit('Supprimer',
+                            ['class'=>'btn btn-danger']) !!}
+
+                            {!! Form::close() !!}
                         @endforeach
                         {{$posts->links()}}
                         <h1>Evenements</h1>
@@ -22,6 +36,21 @@
                             <h3>Fin : {{ $event->date_de_fin }}</h3>
                             <h4>Lieu :{{ $event->lieu }}</h4>
                             <h4>Tarif :{{ $event->tarif }}</h4>
+                            <br>
+                            <a href="{{ route('admin.edit', $post->id, 1) }}" class="btn btn-success">Modifier</a>
+                            <br>
+
+                            {!! Form::model(
+                            $post,
+                            array(
+                            'route' => array('admin.destroy', $post->id, 1),
+                            'method' => 'DELETE'))
+                            !!}
+
+                            {!! Form::submit('Supprimer',
+                            ['class'=>'btn btn-danger']) !!}
+
+                            {!! Form::close() !!}
                         @endforeach
 
                         {!! $events->links() !!}

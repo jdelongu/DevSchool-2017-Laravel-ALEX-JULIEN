@@ -24,3 +24,4 @@ Route::resource('/event','EventController');
 Route::resource('/article','ArticleController');
 
 Route::resource('/admin', 'AdminController');
+
